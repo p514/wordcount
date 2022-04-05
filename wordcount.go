@@ -1,9 +1,7 @@
 package main
 
 import (
-	"errors"
 	"fmt"
-//	"flag"
 	"os"
 	"strings"
 	"unicode"
@@ -17,28 +15,11 @@ func count(src string) int {
 }
 
 func main() {
-	// input := " Welcome aboard!"
-	// words := strings.Fields(input)
-	// fmt.Println(words, len(words))
-
-	src, err := readInput()
-	if err != nil {
-		fail(err)
-	}
+	src := readInput()
 	n := count(src)
-
 	fmt.Println(n)
 }
 
-func readInput() (src string, err error) {
-	src = os.Args[1]
-	if src == "" {
-		return src, errors.New("missing string")
-	}
-	return src, nil
-}
-		
-func fail(err error) {
-	fmt.Println("wordcount:", err)
-	os.Exit(1)
+func readInput() string {
+	return os.Args[1]	
 }
