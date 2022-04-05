@@ -16,8 +16,12 @@ func count(src string) int {
 
 func main() {
 	src := readInput()
-	n := count(src)
-	fmt.Println(n)
+	if src == "" {
+		fmt.Println(0)
+	} else {
+		n := count(src) + 1
+		fmt.Println(n)
+	}	
 }
 
 func readInput() string {
